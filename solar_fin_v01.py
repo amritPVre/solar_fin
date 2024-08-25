@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import numpy_financial as npf
-import plotly.graph_objs as go
 import matplotlib.pyplot as plt
 import base64
 import tempfile
