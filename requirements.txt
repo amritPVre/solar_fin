@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+numpy-financial
+matplotlib
+fpdf
+Pillow
+forex-python
+yfinance
