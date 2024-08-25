@@ -10,6 +10,7 @@ from PIL import Image
 from forex_python.converter import CurrencyRates, CurrencyCodes
 from datetime import datetime
 import yfinance as yf
+from fpdf.enums import XPos, YPos
 
 
 #-------Currency Converter Mini-App------#
