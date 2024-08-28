@@ -790,9 +790,9 @@ if submit_button:
         
             # Regular headers (single-line headers) with currency symbols
             self.cell(col_widths[0], 24, 'Year', border=1, align='C', fill=True)
-            self.multi_cell(col_widths[4], 24, f'Gross Revenue \n({currency_symbol})', border=1, align='C', fill=True)
-            self.multi_cell(col_widths[4], 24, f'O&M Expense \n({currency_symbol})', border=1, align='C', fill=True)
-            self.multi_cell(col_widths[4], 24, f'Cash Flow \n({currency_symbol})', border=1, align='C', fill=True)
+            self.multi_cell(col_widths[1], 24, f'Gross Revenue \n({currency_symbol})', border=1, align='C', fill=True)
+            self.multi_cell(col_widths[2], 24, f'O&M Expense \n({currency_symbol})', border=1, align='C', fill=True)
+            self.multi_cell(col_widths[3], 24, f'Cash Flow \n({currency_symbol})', border=1, align='C', fill=True)
             # Multi-cell for the header with a line break and currency symbol
             self.multi_cell(col_widths[4], 8, f'Cumulative\nNet Revenue ({currency_symbol})', border=1, align='C', fill=True)
             self.ln(0)
