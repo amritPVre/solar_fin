@@ -800,7 +800,7 @@ if submit_button:
             self.set_xy(x_start + col_widths[1] + col_widths[2] + col_widths[3], self.get_y() - 20)  # Reset the position for the next cell in the same row
             self.multi_cell(col_widths[4], 6.667, f'Cumulative\nNet Revenue\n({currency_symbol})', border=1, align='C', fill=True)
 
-            #self.ln(0)
+            self.ln(1)
         
             # Filling in the table rows with reduced row height and currency symbols in the values
             self.set_font('Arial', '', 10)
