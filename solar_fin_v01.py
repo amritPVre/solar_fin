@@ -814,7 +814,7 @@ if submit_button:
             # Filling in the table rows with reduced row height and currency symbols in the values
             self.set_font('Arial', '', 10)
             for index, row in df_cash_flows_pdf.iterrows():
-                self.set_x(x_start)
+                self.set_x(x_start_T)
                 self.cell(col_widths[0], 7, str(int(row['Year'])), border=1, align='C')
                 self.cell(col_widths[1], 7, f"{row[f'Gross Revenue ({currency_symbol})']:.0f}", border=1, align='C')
                 self.cell(col_widths[2], 7, f"{row[f'O&M Expense ({currency_symbol})']:.0f}", border=1, align='C')
