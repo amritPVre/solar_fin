@@ -1014,10 +1014,42 @@ if submit_button:
 
     # Provide download link as HTML button
     provide_pdf_download_link(pdf_buffer, "solar_pv_system_financial_report.pdf")
+    # Generate a new PDF buffer for the sidebar to avoid data corruption issues
+    pdf_buffer_sidebar = generate_pdf_report(
+        logo_file,
+        df_cash_flows_pdf=df_cash_flows_pdf,
+        df_cash_flows=df_cash_flows,
+        initial_investment=initial_investment,
+        project_capacity=project_capacity,
+        o_and_m_cost=o_and_m_cost,
+        electricity_cost=electricity_cost,
+        project_life=project_life,
+        energy_generation_first_year=energy_generation_first_year,
+        yearly_degradation=yearly_degradation,
+        o_and_m_escalation=o_and_m_escalation,
+        electricity_tariff_escalation=electricity_tariff_escalation,
+        discount_rate=discount_rate,
+        total_revenue=total_revenue,
+        total_o_and_m_cost=total_o_and_m_cost,
+        cumulative_net_revenue=cumulative_net_revenue,
+        npv=npv,
+        irr=irr,
+        payback_period_years=payback_period_years,
+        additional_months=additional_months,
+        annual_average_roi=annual_average_roi,
+        lcoe=lcoe,
+        houses_energized=houses_energized,
+        gallons_gas_saved=gallons_gas_saved,
+        cars_taken_off_road=cars_taken_off_road,
+        tree_seedlings=tree_seedlings,
+        co2_saved_tonnes=co2_saved_tonnes
+    )
+    
+    # Provide download link in the sidebar
     with st.sidebar:
         st.write('_________')
-        provide_pdf_download_link(pdf_buffer, "solar_pv_system_financial_report.pdf")
-
-
-
+        provide_pdf_download_link(pdf_buffer_sidebar, "solar_pv_system_financial_report.pdf")
     
+    
+    
+        
