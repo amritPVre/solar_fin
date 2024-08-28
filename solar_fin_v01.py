@@ -956,7 +956,7 @@ if submit_button:
         pdf_file = 'solar_pv_system_financial_report.pdf'
         pdf.output(pdf_file)
     
-        return pdf_file
+        return pdf.output(dest='S').encode('latin1')
     
     def provide_pdf_download_link(pdf_content, file_name):
         # Ensure pdf_content is bytes, not string
