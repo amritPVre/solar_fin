@@ -846,7 +846,7 @@ if submit_button:
 
 
 
-    def generate_pdf_report(logo_file, df_cash_flows_pdf, df_cash_flows, initial_investment, project_capacity, o_and_m_cost, electricity_cost, project_life, energy_generation_first_year, yearly_degradation, o_and_m_escalation, electricity_tariff_escalation, discount_rate, total_revenue, total_o_and_m_cost, cumulative_net_revenue, npv, irr, payback_period_years, additional_months, annual_average_roi, lcoe, houses_energized, gallons_gas_saved, cars_taken_off_road, tree_seedlings, co2_saved_tonnes):
+    def generate_pdf_report(logo_file, df_cash_flows_pdf, df_cash_flows, initial_investment,initial_investment_total, project_capacity, o_and_m_cost, electricity_cost, project_life, energy_generation_first_year, yearly_degradation, o_and_m_escalation, electricity_tariff_escalation, discount_rate, total_revenue, total_o_and_m_cost, cumulative_net_revenue, npv, irr, payback_period_years, additional_months, annual_average_roi, lcoe, houses_energized, gallons_gas_saved, cars_taken_off_road, tree_seedlings, co2_saved_tonnes):
         #pdf = PDF()
         # Save the logo file temporarily if provided
         logo_path = None
@@ -870,10 +870,10 @@ if submit_button:
         
         # Connect Form Data to Input Data
         form_data = {
-            "Initial Investment (USD/Wp)": f"${initial_investment:.2f}",
+            f"Total Initial Investment ({currency_symbol})": f"{currency_symbol}{initial_investment_total:.2f}",
             "Project Capacity (kWp)": f"{project_capacity} kWp",
-            "O&M Cost (USD/kWp per year)": f"${o_and_m_cost:.2f}",
-            "Cost of Electricity (USD/kWh)": f"${electricity_cost:.2f}",
+            f"O&M Cost ({currency_symbol}/kWp per year)": f"{currency_symbol}{o_and_m_cost:.2f}",
+            f"Cost of Electricity ({currency_symbol}/kWh)": f"{currency_symbol}{electricity_cost:.2f}",
             "Project Life (years)": f"{project_life} years",
             "Energy Generation for First Year (kWh)": f"{energy_generation_first_year:.2f} kWh",
             "Yearly Degradation (%)": f"{yearly_degradation:.2f}%",
@@ -983,6 +983,7 @@ if submit_button:
     pdf_buffer = generate_pdf_report(
         logo_file,
         initial_investment=initial_investment,
+        initial_investment_total=initial_investment_total,
         project_capacity=project_capacity,
         o_and_m_cost=o_and_m_cost,
         electricity_cost=electricity_cost,
@@ -1020,6 +1021,7 @@ if submit_button:
         df_cash_flows_pdf=df_cash_flows_pdf,
         df_cash_flows=df_cash_flows,
         initial_investment=initial_investment,
+        initial_investment_total=initial_investment_total,
         project_capacity=project_capacity,
         o_and_m_cost=o_and_m_cost,
         electricity_cost=electricity_cost,
