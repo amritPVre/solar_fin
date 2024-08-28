@@ -112,10 +112,10 @@ col1,col2,col3=st.columns(3)
 col2.write(f"Selected Currency: {currency_code} ({currency_symbol})")
 
 # Constants from EPA
-KWH_PER_HOUSEHOLD = 10715
-CO2_PER_KWH = 0.92  # kg CO2 per kWh
-GALLON_GAS_CO2 = 8.89  # kg CO2 per gallon of gasoline
-CO2_PER_CAR = 4.6  # metric tons of CO2 per car per year
+KWH_PER_HOUSEHOLD = 10800
+CO2_PER_KWH = 0.82  # kg CO2 per kWh
+GALLON_GAS_CO2 = 8.887  # kg CO2 per gallon of gasoline
+CO2_PER_CAR = 4.2  # metric tons of CO2 per car per year
 TREE_SEEDLING_CO2 = 0.039  # metric tons of CO2 per tree seedling over 10 years
 
 # CSS & HTML
