@@ -786,17 +786,17 @@ if submit_button:
             # Setting up the table headers with a line break in the 'Cumulative Net Revenue' header
             self.set_font('Arial', 'B', 12)
             self.set_fill_color(240, 240, 240)
-            col_widths = [20, 40, 40, 40, 40]  # Adjust column widths as needed
+            col_widths = [20, 43, 43, 43, 40]  # Adjust column widths as needed
         
             # Regular headers (single-line headers) with currency symbols
             self.cell(col_widths[0], 20, 'Year', border=1, align='C', fill=True)
             self.cell(col_widths[1], 20, f'Gross Revenue ({currency_symbol})', border=1, align='C', fill=True)
             self.cell(col_widths[2], 20, f'O&M Expense ({currency_symbol})', border=1, align='C', fill=True)
             self.cell(col_widths[3], 20, f'Cash Flow ({currency_symbol})', border=1, align='C', fill=True)
-            
+            self.ln()
             # Multi-cell for the header with a line break and currency symbol
             self.multi_cell(col_widths[4], 10, f'Cumulative\nNet Revenue ({currency_symbol})', border=1, align='C', fill=True)
-            self.ln()
+            
         
             # Filling in the table rows with reduced row height and currency symbols in the values
             self.set_font('Arial', '', 10)
