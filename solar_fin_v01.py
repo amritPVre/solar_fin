@@ -11,6 +11,7 @@ from forex_python.converter import CurrencyRates, CurrencyCodes
 from datetime import datetime
 import yfinance as yf
 from fpdf.enums import XPos, YPos
+import io
 
 
 #-------Currency Converter Mini-App------#
@@ -952,18 +953,16 @@ if submit_button:
         pdf.add_cash_flow_table(df_cash_flows_pdf, currency_symbol)
         
 
-        # Save PDF to a file
-        pdf_file = 'solar_pv_system_financial_report.pdf'
-        pdf.output(pdf_file)
+        # Create a BytesIO buffer to store the PDF content
+        pdf_buffer = io.BytesIO()
+        pdf.output(pdf_buffer)  # Output to BytesIO instead of a file
+        pdf_buffer.seek(0)  # Reset buffer to the beginning
     
-        # Save PDF to a bytes buffer instead of a file
-        pdf_output = pdf.output(dest='S').encode('latin1', errors='ignore')
-
-        return pdf_output
+        return pdf_buffer
     
-    def provide_pdf_download_link(pdf_content, file_name):
+    def provide_pdf_download_link(pdf_buffer, file_name):
         # Encode the PDF content as base64
-        b64 = base64.b64encode(pdf_content).decode('latin1')  # Convert to base64 string
+        b64 = base64.b64encode(pdf_buffer.read()).decode('utf-8')  # Read and encode the binary PDF content
         
         # HTML for the download button with center alignment
         href = f'''
@@ -981,7 +980,7 @@ if submit_button:
     
     
     
-    pdf_file = generate_pdf_report(
+    pdf_buffer = generate_pdf_report(
         logo_file,
         initial_investment=initial_investment,
         project_capacity=project_capacity,
@@ -1014,10 +1013,10 @@ if submit_button:
     
 
     # Provide download link as HTML button
-    provide_pdf_download_link(pdf_file, "solar_pv_system_financial_report.pdf")
+    provide_pdf_download_link(pdf_buffer, "solar_pv_system_financial_report.pdf")
     with st.sidebar:
         st.write('_________')
-        provide_pdf_download_link(pdf_file, "solar_pv_system_financial_report.pdf")
+        provide_pdf_download_link(pdf_buffer, "solar_pv_system_financial_report.pdf")
 
 
 
