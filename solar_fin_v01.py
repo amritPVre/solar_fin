@@ -963,7 +963,7 @@ if submit_button:
     
     def provide_pdf_download_link(pdf_content, file_name):
         # Encode the PDF content as base64
-        b64 = base64.b64encode(pdf_content).decode('utf-8')  # Convert to base64 string
+        b64 = base64.b64encode(pdf_content).decode('latin1')  # Convert to base64 string
         
         # HTML for the download button with center alignment
         href = f'''
