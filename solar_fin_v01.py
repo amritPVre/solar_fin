@@ -787,7 +787,8 @@ if submit_button:
             self.set_font('Arial', 'B', 12)
             self.set_fill_color(240, 240, 240)
             col_widths = [15, 40, 40, 40, 40]  # Adjust column widths as needed
-
+            # Regular header for 'Year'
+            self.cell(col_widths[0], 20, 'Year', border=1, align='C', fill=True)
             x_start = self.get_x()
         
             # Multi-cell headers for the other columns with a line break before the currency symbol
@@ -797,7 +798,7 @@ if submit_button:
             self.set_xy(x_start + col_widths[1] + col_widths[2], self.get_y() - 20)  # Reset the position for the next cell in the same row
             self.multi_cell(col_widths[3], 10, f'Cash Flow\n({currency_symbol})', border=1, align='C', fill=True)
             self.set_xy(x_start + col_widths[1] + col_widths[2] + col_widths[3], self.get_y() - 20)  # Reset the position for the next cell in the same row
-            self.multi_cell(col_widths[4], 10, f'Cumulative\nNet Revenue\n({currency_symbol})', border=1, align='C', fill=True)
+            self.multi_cell(col_widths[4], 7, f'Cumulative\nNet Revenue\n({currency_symbol})', border=1, align='C', fill=True)
 
             self.ln(0)
         
