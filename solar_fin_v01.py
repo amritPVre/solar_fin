@@ -957,17 +957,13 @@ if submit_button:
         pdf.output(pdf_file)
     
         # Save PDF to a bytes buffer instead of a file
-        pdf_output = pdf.output(dest='S').encode('latin1')
+        pdf_output = pdf.output(dest='S').encode('latin1', errors='ignore')
 
         return pdf_output
     
     def provide_pdf_download_link(pdf_content, file_name):
-        # Ensure pdf_content is bytes, not string
-        if isinstance(pdf_content, str):
-            pdf_content = pdf_content.encode('latin1')
-        
         # Encode the PDF content as base64
-        b64 = base64.b64encode(pdf_content).decode()  # Decoding to UTF-8 string
+        b64 = base64.b64encode(pdf_content).decode('utf-8')  # Convert to base64 string
         
         # HTML for the download button with center alignment
         href = f'''
