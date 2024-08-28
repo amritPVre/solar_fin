@@ -578,7 +578,7 @@ if submit_button:
             self.set_font('Arial', 'I', 8)
             self.cell(0, 5, f'Page {self.page_no()}', 0, 1, 'C')
             self.set_y(-10)  # Adjust position for the link
-            self.cell(0, 5, 'App link: https://energy-eda-v01.streamlit.app/', 0, 0, 'C', link='https://energy-eda-v01.streamlit.app/')
+            self.cell(0, 5, 'App link: https://solarfinc-v01.streamlit.app/', 0, 0, 'C', link='https://energy-eda-v01.streamlit.app/')
 
         def cover_page(self, client_name, client_address, project_name, company_name, prepared_by, company_email):
             self.add_page()
