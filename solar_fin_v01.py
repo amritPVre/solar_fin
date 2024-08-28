@@ -786,15 +786,15 @@ if submit_button:
             # Setting up the table headers with a line break in the 'Cumulative Net Revenue' header
             self.set_font('Arial', 'B', 12)
             self.set_fill_color(240, 240, 240)
-            col_widths = [20, 46, 46, 46, 40]  # Adjust column widths as needed
+            col_widths = [15, 46, 46, 46, 35]  # Adjust column widths as needed
         
             # Regular headers (single-line headers) with currency symbols
-            self.cell(col_widths[0], 30, 'Year', border=1, align='C', fill=True)
-            self.cell(col_widths[1], 30, f'Gross Revenue ({currency_symbol})', border=1, align='C', fill=True)
-            self.cell(col_widths[2], 30, f'O&M Expense ({currency_symbol})', border=1, align='C', fill=True)
-            self.cell(col_widths[3], 30, f'Cash Flow ({currency_symbol})', border=1, align='C', fill=True)
+            self.cell(col_widths[0], 24, 'Year', border=1, align='C', fill=True)
+            self.cell(col_widths[1], 24, f'Gross Revenue ({currency_symbol})', border=1, align='C', fill=True)
+            self.cell(col_widths[2], 24, f'O&M Expense ({currency_symbol})', border=1, align='C', fill=True)
+            self.cell(col_widths[3], 24, f'Cash Flow ({currency_symbol})', border=1, align='C', fill=True)
             # Multi-cell for the header with a line break and currency symbol
-            self.multi_cell(col_widths[4], 10, f'Cumulative\nNet Revenue ({currency_symbol})', border=1, align='C', fill=True)
+            self.multi_cell(col_widths[4], 8, f'Cumulative\nNet Revenue ({currency_symbol})', border=1, align='C', fill=True)
             self.ln(1)
         
             # Filling in the table rows with reduced row height and currency symbols in the values
@@ -814,7 +814,7 @@ if submit_button:
             self.chapter_title('25 Years Energy Yield Data Analysis')
         
             # Set the table column widths
-            col_widths = [20, 60, 60]  # Adjust column widths as needed
+            col_widths = [15, 60, 60]  # Adjust column widths as needed
             table_width = sum(col_widths)  # Total width of the table
             
             # Calculate the starting x position to center the table
