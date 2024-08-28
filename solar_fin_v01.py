@@ -104,7 +104,7 @@ c = CurrencyCodes()
 
 # Example usage: get the symbol for a currency code
 col1,col2,col3=st.columns(3)
-currency_code = col2.selectbox("Select Currency", ["USD", "EUR", "GBP", "INR", "JPY", "AUD", "AED", "OMR"])
+currency_code = col2.selectbox("Select Currency", ["USD", "EUR", "GBP", "INR", "JPY", "AUD", "OMR"])
 currency_symbol = c.get_symbol(currency_code)
 
 col1,col2,col3=st.columns(3)
@@ -960,7 +960,7 @@ if submit_button:
     
     def provide_pdf_download_link(pdf_content, file_name):
         # Encode the PDF content as base64
-        b64 = base64.b64encode(pdf_file).decode()
+        b64 = base64.b64encode(pdf_file)
         
         # HTML for the download button with center alignment
         href = f'''
