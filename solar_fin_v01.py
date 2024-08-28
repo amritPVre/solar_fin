@@ -796,6 +796,7 @@ if submit_button:
             
             # Multi-cell for the header with a line break and currency symbol
             self.multi_cell(col_widths[4], 10, f'Cumulative\nNet Revenue ({currency_symbol})', border=1, align='C', fill=True)
+            self.ln()
         
             # Filling in the table rows with reduced row height and currency symbols in the values
             self.set_font('Arial', '', 10)
