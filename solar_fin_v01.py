@@ -782,18 +782,20 @@ if submit_button:
         def add_cash_flow_table(self, df_cash_flows_pdf, currency_symbol):
             self.add_page()
             self.chapter_title('Cash Flow Analysis')
-
+        
+            # Setting up the table headers with a line break in the 'Cumulative Net Revenue' header
+            self.set_font('Arial', 'B', 12)
+            self.set_fill_color(240, 240, 240)
+            col_widths = [15, 40, 40, 40, 40]  # Adjust column widths as needed
+            table_width = sum(col_widths)  # Total width of the table
             # Calculate the starting x position to center the table
             page_width = self.w - 2 * self.l_margin  # Page width minus margins
             x_start_T = (page_width - table_width) / 2 + self.l_margin
             
             # Set the position for the table
             self.set_x(x_start_T)
-        
-            # Setting up the table headers with a line break in the 'Cumulative Net Revenue' header
-            self.set_font('Arial', 'B', 12)
-            self.set_fill_color(240, 240, 240)
-            col_widths = [15, 40, 40, 40, 40]  # Adjust column widths as needed
+            
+            
             # Regular header for 'Year'
             self.cell(col_widths[0], 20, 'Year', border=1, align='C', fill=True)
             x_start = self.get_x()
