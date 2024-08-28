@@ -782,6 +782,13 @@ if submit_button:
         def add_cash_flow_table(self, df_cash_flows_pdf, currency_symbol):
             self.add_page()
             self.chapter_title('Cash Flow Analysis')
+
+            # Calculate the starting x position to center the table
+            page_width = self.w - 2 * self.l_margin  # Page width minus margins
+            x_start_T = (page_width - table_width) / 2 + self.l_margin
+            
+            # Set the position for the table
+            self.set_x(x_start_T)
         
             # Setting up the table headers with a line break in the 'Cumulative Net Revenue' header
             self.set_font('Arial', 'B', 12)
