@@ -3,6 +3,7 @@ pandas
 numpy
 numpy-financial
 matplotlib
+fpdf
 fpdf2
 Pillow
 forex-python
