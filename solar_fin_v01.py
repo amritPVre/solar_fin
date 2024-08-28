@@ -788,13 +788,15 @@ if submit_button:
             self.set_fill_color(240, 240, 240)
             col_widths = [15, 40, 40, 40, 40]  # Adjust column widths as needed
         
-            # Regular headers (single-line headers) with currency symbols
-            self.cell(col_widths[0], 24, 'Year', border=1, align='C', fill=True)
-            self.multi_cell(col_widths[1], 8, f'Gross Revenue \n({currency_symbol})', border=1, align='C', fill=True)
-            self.multi_cell(col_widths[2], 8, f'O&M Expense \n({currency_symbol})', border=1, align='C', fill=True)
-            self.multi_cell(col_widths[3], 8, f'Cash Flow \n({currency_symbol})', border=1, align='C', fill=True)
-            # Multi-cell for the header with a line break and currency symbol
-            self.multi_cell(col_widths[4], 8, f'Cumulative\nNet Revenue ({currency_symbol})', border=1, align='C', fill=True)
+            # Multi-cell headers for the other columns with a line break before the currency symbol
+            self.multi_cell(col_widths[1], 10, f'Gross Revenue\n({currency_symbol})', border=1, align='C', fill=True)
+            self.set_xy(self.get_x() + col_widths[0], self.get_y() - 20)  # Adjust the position back to the same row for the next cell
+            self.multi_cell(col_widths[2], 10, f'O&M Expense\n({currency_symbol})', border=1, align='C', fill=True)
+            self.set_xy(self.get_x() + col_widths[1], self.get_y() - 20)  # Adjust the position back to the same row for the next cell
+            self.multi_cell(col_widths[3], 10, f'Cash Flow\n({currency_symbol})', border=1, align='C', fill=True)
+            self.set_xy(self.get_x() + col_widths[2], self.get_y() - 20)  # Adjust the position back to the same row for the next cell
+            self.multi_cell(col_widths[4], 10, f'Cumulative\nNet Revenue\n({currency_symbol})', border=1, align='C', fill=True)
+
             self.ln(0)
         
             # Filling in the table rows with reduced row height and currency symbols in the values
