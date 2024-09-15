@@ -861,7 +861,37 @@ if submit_button:
 
 
 
-    def generate_pdf_report(logo_file, df_cash_flows_pdf, df_cash_flows, initial_investment,initial_investment_total, project_capacity, o_and_m_cost, electricity_cost, project_life, energy_generation_first_year, yearly_degradation, o_and_m_escalation, electricity_tariff_escalation, discount_rate, total_revenue, total_o_and_m_cost, cumulative_net_revenue, npv, irr, payback_period_years, additional_months, annual_average_roi, lcoe, houses_energized, gallons_gas_saved, cars_taken_off_road, tree_seedlings, co2_saved_tonnes):
+    def generate_pdf_report(
+        logo_file,
+        initial_investment,
+        initial_investment_total,
+        project_capacity,
+        o_and_m_cost,
+        electricity_cost,
+        project_life,
+        energy_generation_first_year,
+        yearly_degradation,
+        o_and_m_escalation,
+        electricity_tariff_escalation,
+        discount_rate,
+        total_revenue,
+        total_o_and_m_cost,
+        cumulative_net_revenue,
+        npv,
+        irr,
+        payback_period_years,
+        additional_months,
+        annual_average_roi,
+        lcoe,
+        houses_energized,
+        gallons_gas_saved,
+        cars_taken_off_road,
+        tree_seedlings,
+        co2_saved_tonnes,
+        df_cash_flows_pdf,
+        df_cash_flows
+    ):
+
         #pdf = PDF()
         # Save the logo file temporarily if provided
         logo_path = None
