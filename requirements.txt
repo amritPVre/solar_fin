@@ -3,8 +3,7 @@ pandas
 numpy
 numpy-financial
 matplotlib
-fpdf
-fpdf2
+fpdf==1.7
 Pillow
 forex-python
 yfinance
