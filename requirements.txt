@@ -1,9 +1,9 @@
-streamlit==1.25.0
-pandas==2.1.1
-numpy==1.26.0
-numpy-financial==1.0.0
-matplotlib==3.8.0
+streamlit
+pandas
+numpy
+numpy-financial
+matplotlib
 fpdf==1.7.2
-Pillow==10.0.0
-forex-python==1.8
-yfinance==0.2.31
+Pillow
+forex-python
+yfinance
