@@ -13,6 +13,7 @@ import yfinance as yf
 from fpdf.enums import XPos, YPos
 import io
 
+st.write(f"FPDF version: {fpdf.__version__}")
 
 #-------Currency Converter Mini-App------#
 
@@ -999,9 +1000,10 @@ if submit_button:
         
 
         # Create a BytesIO buffer to store the PDF content
-        pdf_buffer = io.BytesIO()
-        pdf.output(pdf_buffer)  # Output to BytesIO instead of a file
-        pdf_buffer.seek(0)  # Reset buffer to the beginning
+        pdf_output = pdf.output(dest='S').encode('latin-1')  # Get PDF as string
+        pdf_buffer = io.BytesIO(pdf_output)
+        pdf_buffer.seek(0)
+
     
         return pdf_buffer
     
