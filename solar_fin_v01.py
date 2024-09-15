@@ -5,6 +5,7 @@ import numpy_financial as npf
 import matplotlib.pyplot as plt
 import base64
 import tempfile
+import fpdf
 from fpdf import FPDF
 from PIL import Image
 from forex_python.converter import CurrencyRates, CurrencyCodes
