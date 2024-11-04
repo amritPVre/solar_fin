@@ -1,4 +1,9 @@
 import streamlit as st
+meta_tag = """
+<meta name="google-site-verification" content="ttk9iJxghxavRmLn7g_YdUQXxJ1YiixqxOHyGW2CukY" />
+"""
+st.markdown(meta_tag, unsafe_allow_html=True)
+
 import pandas as pd
 import numpy as np
 import numpy_financial as npf
@@ -30,16 +35,13 @@ schema_markup = """
   "description": "A financial calculator for Solar PV systems to analyze energy consumption, IRR, NPV, and payback period.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "All",
-  "url": "https://your-streamlit-app-url.com"
+  "url": "https://solarfinc-v01.streamlit.app/"
 }
 </script>
 """
 st.markdown(schema_markup, unsafe_allow_html=True)
 
-meta_tag = """
-<meta name="google-site-verification" content="ttk9iJxghxavRmLn7g_YdUQXxJ1YiixqxOHyGW2CukY" />
-"""
-st.markdown(meta_tag, unsafe_allow_html=True)
+
 
 st.write(f"FPDF version: {fpdf.__version__}")
 
