@@ -15,6 +15,32 @@ from fpdf.enums import XPos, YPos
 import io
 from io import BytesIO
 
+# Meta description for SEO optimization
+meta_description = """
+    <meta name="description" content="Solar PV System Financial Calculator helps analyze energy consumption, optimize solar energy generation, and evaluate financial metrics such as NPV, IRR, and payback period. Ideal for solar engineers, renewable energy enthusiasts, and investors.">
+"""
+st.markdown(meta_description, unsafe_allow_html=True)
+
+schema_markup = """
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Solar PV System Financial Calculator",
+  "description": "A financial calculator for Solar PV systems to analyze energy consumption, IRR, NPV, and payback period.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "url": "https://your-streamlit-app-url.com"
+}
+</script>
+"""
+st.markdown(schema_markup, unsafe_allow_html=True)
+
+meta_tag = """
+<meta name="google-site-verification" content="ttk9iJxghxavRmLn7g_YdUQXxJ1YiixqxOHyGW2CukY" />
+"""
+st.markdown(meta_tag, unsafe_allow_html=True)
+
 st.write(f"FPDF version: {fpdf.__version__}")
 
 #-------Currency Converter Mini-App------#
