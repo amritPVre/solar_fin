@@ -13,6 +13,7 @@ from datetime import datetime
 import yfinance as yf
 from fpdf.enums import XPos, YPos
 import io
+from io import BytesIO
 
 st.write(f"FPDF version: {fpdf.__version__}")
 
@@ -1001,8 +1002,8 @@ if submit_button:
         
 
         # Create a BytesIO buffer to store the PDF content
-        pdf_output = pdf.output(dest='S').encode('utf-8')  # Get PDF as string
-        pdf_buffer = io.BytesIO(pdf_output)
+        pdf_output = pdf.output(dest='S')  # Get PDF as string
+        pdf_buffer = BytesIO(pdf_output)
         pdf_buffer.seek(0)
 
     
