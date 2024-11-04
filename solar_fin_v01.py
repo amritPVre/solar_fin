@@ -1001,7 +1001,7 @@ if submit_button:
         
 
         # Create a BytesIO buffer to store the PDF content
-        pdf_output = pdf.output(dest='S').encode('latin-1')  # Get PDF as string
+        pdf_output = pdf.output(dest='S').encode('utf-8')  # Get PDF as string
         pdf_buffer = io.BytesIO(pdf_output)
         pdf_buffer.seek(0)
 
