@@ -22,7 +22,7 @@ from io import BytesIO
 
 # Meta description for SEO optimization
 meta_description = """
-    <meta name="description" content="Solar PV System Financial Calculator helps analyze energy consumption, optimize solar energy generation, and evaluate financial metrics such as NPV, IRR, and payback period, evaluate environmental metrics like carbon offset, co2 reduction, forrest plantation, gasoline saved, number of homes get electrified. Ideal for solar engineers, renewable energy enthusiasts, and investors.">
+    <meta name="description" content="Solar PV System Financial Calculator helps analyze energy consumption, optimize solar energy generation, and evaluate financial metrics such as NPV, IRR, ROI, yearly gross revenue, yearly net revenue, levelized cost of energy, LCoE, yearly onm cost, escalation in tariff, and payback period, evaluate environmental metrics like carbon offset, co2 reduction, forrest plantation, gasoline saved, number of homes get electrified. Ideal for solar engineers, renewable energy enthusiasts, and investors.">
 """
 st.markdown(meta_description, unsafe_allow_html=True)
 
