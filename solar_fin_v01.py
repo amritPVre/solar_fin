@@ -22,7 +22,7 @@ from io import BytesIO
 
 # Meta description for SEO optimization
 meta_description = """
-    <meta name="description" content="Solar PV System Financial Calculator helps analyze energy consumption, optimize solar energy generation, and evaluate financial metrics such as NPV, IRR, and payback period. Ideal for solar engineers, renewable energy enthusiasts, and investors.">
+    <meta name="description" content="Solar PV System Financial Calculator helps analyze energy consumption, optimize solar energy generation, and evaluate financial metrics such as NPV, IRR, and payback period, evaluate environmental metrics like carbon offset, co2 reduction, forrest plantation, gasoline saved, number of homes get electrified. Ideal for solar engineers, renewable energy enthusiasts, and investors.">
 """
 st.markdown(meta_description, unsafe_allow_html=True)
 
@@ -32,20 +32,28 @@ schema_markup = """
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Solar PV System Financial Calculator",
-  "description": "A financial calculator for Solar PV systems to analyze energy consumption, IRR, NPV, and payback period.",
+  "description": "A financial calculator for Solar PV systems to analyze 25 years long term energy production, generation, energy yield, IRR, NPV, and payback period.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "All",
-  "url": "https://solarfinc-v01.streamlit.app/"
+  "url": "https://your-streamlit-app-url.com"
 }
 </script>
 """
 st.markdown(schema_markup, unsafe_allow_html=True)
 
+meta_tag = """
+<meta name="google-site-verification" content="ttk9iJxghxavRmLn7g_YdUQXxJ1YiixqxOHyGW2CukY" />
+"""
+st.markdown(meta_tag, unsafe_allow_html=True)
 
 
 st.write(f"FPDF version: {fpdf.__version__}")
 
+
+
+
 #-------Currency Converter Mini-App------#
+
 
 # Sidebar section for real-time currency converter
 st.sidebar.header("Real-Time Currency Converter")
@@ -75,6 +83,131 @@ if st.sidebar.button("Convert"):
 
 
 #--------------------------#
+
+#-----Sidebar Menu & Contacts-----#
+
+
+# CSS styling for the contact section
+contact_css = """
+<style>
+.contact {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.contact h2 {
+    color: #2e8b57;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.contact p {
+    font-size: 18px;
+    color: #555;
+}
+.contact a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+.contact a:hover {
+    text-decoration: underline;
+}
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.contact-icons a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #2e8b57;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.contact-icons a:hover {
+    color: #ff6347;
+    transform: scale(1.2);
+}
+.contact-number {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+"""
+
+# Contact section HTML
+contact_section = """
+<div class="contact">
+    <h2></h2>
+    <div class="contact-icons">
+        <a href="mailto:amrit.mandal0191@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/amritmandal/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="contact-number">
+        <p>📞 +91 8116401052</p>
+    </div>
+</div>
+"""
+
+
+
+#----Sidebar Menu for Other Apps-----#
+
+# CSS styling for the sidebar menu buttons
+sidebar_css = """
+<style>
+.sidebar-menu {
+    font-family: Arial, sans-serif;
+    margin: 0px 0;
+}
+
+.sidebar-menu h3 {
+    color: #333333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.sidebar-menu .menu-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.sidebar-menu .menu-button:hover {
+    background-color: #ff6347;
+    transform: scale(1.05);
+    text-decoration: none; /* Remove underline on hover */
+}
+</style>
+"""
+
+# Sidebar HTML for button-style menu
+sidebar_menu = """
+<div class="sidebar-menu">
+    <h3></h3>
+    <a href="https://portfolio-amrit-mandal.streamlit.app/" target="_blank" class="menu-button">Other Free Apps</a>
+    
+</div>
+"""
+
+
+
+#------#
 #-----------App Header Style--------#
 
 page_style = """
@@ -119,7 +252,7 @@ page_style = """
 hero_section = """
 <div class="hero">
     <h1>Solar PV System Financial Calculator</h1>
-    <p>Analyze your energy consumption and optimize solar energy generation with ease.</p>
+    <p>Model & analyze 25 years long term energy yield, IRR, NPV, cashflow and payback period.</p>
 </div>
 """
 
@@ -1129,6 +1262,9 @@ if submit_button:
         st.write('_________')
         provide_pdf_download_link(pdf_buffer_sidebar, "solar_pv_system_financial_report.pdf")
     
-    
-    
+
+st.sidebar.markdown(sidebar_css, unsafe_allow_html=True)
+st.sidebar.markdown(sidebar_menu, unsafe_allow_html=True)
+st.sidebar.markdown(contact_css, unsafe_allow_html=True)
+st.sidebar.markdown(contact_section, unsafe_allow_html=True)
         
