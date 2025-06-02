@@ -76,7 +76,7 @@ if st.sidebar.button("Convert"):
         converted_amount = amount * conversion_rate
         
         # Display the result
-        st.sidebar.success(f"{amount:.2f} {from_currency} = {converted_amount:.2f} {to_currency}")
+        st.sidebar.success(f"{amount:.3f} {from_currency} = {converted_amount:.3f} {to_currency}")
     
     except Exception as e:
         st.sidebar.error(f"Error in conversion: {str(e)}")
@@ -527,31 +527,31 @@ if submit_button:
     lcoe = total_costs / total_generation
 
     st.subheader("Results")
-    #st.write(f"Total Gross Revenue: {currency_symbol}{total_revenue:,.2f}")
-    #st.write(f"Total O&M Cost: {currency_symbol}{total_o_and_m_cost:,.2f}")
-    #st.write(f"Total Net Revenue: {currency_symbol}{cumulative_net_revenue:,.2f}")
-    #st.write(f"NPV: {currency_symbol}{npv:,.2f}")
-    #st.write(f"IRR: {irr:.2f}%")
+    #st.write(f"Total Gross Revenue: {currency_symbol}{total_revenue:,.3f}")
+    #st.write(f"Total O&M Cost: {currency_symbol}{total_o_and_m_cost:,.3f}")
+    #st.write(f"Total Net Revenue: {currency_symbol}{cumulative_net_revenue:,.3f}")
+    #st.write(f"NPV: {currency_symbol}{npv:,.3f}")
+    #st.write(f"IRR: {irr:.3f}%")
     #st.write(f"Simple Payback Period: {payback_period_years} years and {additional_months} months")
-    #st.write(f"Annual Average ROI: {annual_average_roi:.2f}%")
+    #st.write(f"Annual Average ROI: {annual_average_roi:.3f}%")
     #st.write(f"LCoE: {currency_symbol}{lcoe:.4f}/kWh")
 
     # Key Metrics Display
     render_centered_text_block("Levelized Cost of Energy", f"{currency_symbol}{lcoe:.4f}/kWh", width='800px', fa_icon='fas fa-balance-scale', icon_color='darkblue')
     col1, col2 = st.columns(2)
     with col1:
-        render_centered_text_block("Total Gross Revenue", f"{currency_symbol}{total_revenue:,.2f}", background_color='#DBD46D', fa_icon='fas fa-dollar-sign', icon_color='green')
+        render_centered_text_block("Total Gross Revenue", f"{currency_symbol}{total_revenue:,.3f}", background_color='#DBD46D', fa_icon='fas fa-dollar-sign', icon_color='green')
     with col2:
-        render_centered_text_block("Total O&M Cost", f"{currency_symbol}{total_o_and_m_cost:,.2f}", background_color='#DBEAFE', fa_icon='fas fa-tools', icon_color='red')
-    render_centered_text_block("Total Net Revenue", f"{currency_symbol}{cumulative_net_revenue:,.2f}", background_color='#DBEAFE', fa_icon='fas fa-chart-line', icon_color='blue')
+        render_centered_text_block("Total O&M Cost", f"{currency_symbol}{total_o_and_m_cost:,.3f}", background_color='#DBEAFE', fa_icon='fas fa-tools', icon_color='red')
+    render_centered_text_block("Total Net Revenue", f"{currency_symbol}{cumulative_net_revenue:,.3f}", background_color='#DBEAFE', fa_icon='fas fa-chart-line', icon_color='blue')
     
     col1, col2, col3 = st.columns(3)
     with col1:
-        render_centered_text_block("NPV", f"{currency_symbol}{npv:,.2f}", background_color='#DBD46D', fa_icon='fas fa-money-bill-wave', icon_color='orange')
+        render_centered_text_block("NPV", f"{currency_symbol}{npv:,.3f}", background_color='#DBD46D', fa_icon='fas fa-money-bill-wave', icon_color='orange')
     with col2:
-        render_centered_text_block("IRR", f"{irr:.2f}%", background_color='#DBEAFE', fa_icon='fas fa-percentage', icon_color='purple')
+        render_centered_text_block("IRR", f"{irr:.3f}%", background_color='#DBEAFE', fa_icon='fas fa-percentage', icon_color='purple')
     with col3:
-        render_centered_text_block("Annual Avg ROI", f"{annual_average_roi:.2f}%", background_color='#DBEAFE', fa_icon='fas fa-chart-pie', icon_color='darkgreen')
+        render_centered_text_block("Annual Avg ROI", f"{annual_average_roi:.3f}%", background_color='#DBEAFE', fa_icon='fas fa-chart-pie', icon_color='darkgreen')
     render_centered_text_block("Simple Payback Period", f"{payback_period_years} years and {additional_months} months", background_color='#DBEAFE', fa_icon='fas fa-hourglass-half', icon_color='brown')
 
     # Data for plots
@@ -646,13 +646,13 @@ if submit_button:
     # Table display
     styled_df = df_cash_flows.style.format({
         'Year': '{:.0f}',
-        'Energy Yield (kWh)': '{:.2f}',
-        'Yearly Degradation (kWh)': '{:.2f}',
-        '% Yearly Degradation':'{:.2f}',
-        f'Gross Revenue ({currency_symbol})': '{:.2f}',
-        f'O&M Expense ({currency_symbol})': '{:.2f}',
-        f'Cash Flow ({currency_symbol})': '{:.2f}',
-        f'Cumulative Net Revenue ({currency_symbol})': '{:.2f}'
+        'Energy Yield (kWh)': '{:.3f}',
+        'Yearly Degradation (kWh)': '{:.3f}',
+        '% Yearly Degradation':'{:.3f}',
+        f'Gross Revenue ({currency_symbol})': '{:.3f}',
+        f'O&M Expense ({currency_symbol})': '{:.3f}',
+        f'Cash Flow ({currency_symbol})': '{:.3f}',
+        f'Cumulative Net Revenue ({currency_symbol})': '{:.3f}'
     }).set_table_styles(
         [{'selector': 'td', 'props': [('text-align', 'center')]},
          {'selector': 'th', 'props': [('text-align', 'center')]}]
@@ -688,27 +688,27 @@ if submit_button:
             <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
                 <div style="margin: 20px;">
                     <i class="fas fa-home fa-3x" style="color: orange;"></i>
-                    <h3>{houses_energized:.2f}</h3>
+                    <h3>{houses_energized:.3f}</h3>
                     <p>Houses Energized per Year</p>
                 </div>
                 <div style="margin: 20px;">
                     <i class="fas fa-gas-pump fa-3x" style="color: skyblue;"></i>
-                    <h3>{gallons_gas_saved:.2f}</h3>
+                    <h3>{gallons_gas_saved:.3f}</h3>
                     <p>Gallons of Gas Saved per Year</p>
                 </div>
                 <div style="margin: 20px;">
                     <i class="fas fa-car fa-3x" style="color: blue;"></i>
-                    <h3>{cars_taken_off_road:.2f}</h3>
+                    <h3>{cars_taken_off_road:.3f}</h3>
                     <p>Cars Taken Off Road per Year</p>
                 </div>
                 <div style="margin: 20px;">
                     <i class="fas fa-tree fa-3x" style="color: green;"></i>
-                    <h3>{tree_seedlings:.2f}</h3>
+                    <h3>{tree_seedlings:.3f}</h3>
                     <p>Tree Seedlings Grown for 10 Years</p>
                 </div>
                 <div style="margin: 20px;">
                     <i class="fas fa-cloud fa-3x" style="color: gray;"></i>
-                    <h3>{co2_saved_tonnes:.2f}</h3>
+                    <h3>{co2_saved_tonnes:.3f}</h3>
                     <p>Tonnes of CO2 Emissions Saved per Year</p>
                 </div>
             </div>
@@ -1019,7 +1019,7 @@ if submit_button:
                 self.set_x(x_start)  # Set x position to center the rows
                 self.cell(col_widths[0], 7, str(int(row['Year'])), border=1, align='C')
                 self.cell(col_widths[1], 7, f"{row[f'Energy Yield (kWh)']:.0f}", border=1, align='C')
-                self.cell(col_widths[2], 7, f"{row[f'% Yearly Degradation']:.2f}", border=1, align='C')
+                self.cell(col_widths[2], 7, f"{row[f'% Yearly Degradation']:.3f}", border=1, align='C')
                 self.ln()  # Move to the next line after each row
 
 
@@ -1079,16 +1079,16 @@ if submit_button:
         
         # Connect Form Data to Input Data
         form_data = {
-            f"Total Initial Investment ({currency_symbol})": f"{currency_symbol}{initial_investment_total:.2f}",
+            f"Total Initial Investment ({currency_symbol})": f"{currency_symbol}{initial_investment_total:.3f}",
             "Project Capacity (kWp)": f"{project_capacity} kWp",
-            f"O&M Cost ({currency_symbol}/kWp per year)": f"{currency_symbol}{o_and_m_cost:.2f}",
-            f"Cost of Electricity ({currency_symbol}/kWh)": f"{currency_symbol}{electricity_cost:.2f}",
+            f"O&M Cost ({currency_symbol}/kWp per year)": f"{currency_symbol}{o_and_m_cost:.3f}",
+            f"Cost of Electricity ({currency_symbol}/kWh)": f"{currency_symbol}{electricity_cost:.3f}",
             "Project Life (years)": f"{project_life} years",
-            "Energy Generation for First Year (kWh)": f"{energy_generation_first_year:.2f} kWh",
-            "Yearly Degradation (%)": f"{yearly_degradation:.2f}%",
-            "O&M Cost Escalation (%)": f"{o_and_m_escalation:.2f}%",
-            "Electricity Tariff Escalation (%)": f"{electricity_tariff_escalation:.2f}%",
-            "Discount Rate (%)": f"{discount_rate:.2f}%",
+            "Energy Generation for First Year (kWh)": f"{energy_generation_first_year:.3f} kWh",
+            "Yearly Degradation (%)": f"{yearly_degradation:.3f}%",
+            "O&M Cost Escalation (%)": f"{o_and_m_escalation:.3f}%",
+            "Electricity Tariff Escalation (%)": f"{electricity_tariff_escalation:.3f}%",
+            "Discount Rate (%)": f"{discount_rate:.3f}%",
         }
     
         
@@ -1112,13 +1112,13 @@ if submit_button:
         # Financial Metrics Section
         pdf.chapter_subtitle('Financial Metrics')
         financial_metrics = [
-            ("Total Gross Revenue", f"{currency_symbol}{total_revenue:,.2f}", (0, 102, 204)),
-            ("Total O&M Cost", f"{currency_symbol}{total_o_and_m_cost:,.2f}", (255, 165, 0)),
-            ("Total Net Revenue", f"{currency_symbol}{cumulative_net_revenue:,.2f}", (34, 139, 34)),
-            ("NPV", f"{currency_symbol}{npv:,.2f}", (255, 69, 0)),
-            ("IRR", f"{irr:.2f}%", (75, 0, 130)),
+            ("Total Gross Revenue", f"{currency_symbol}{total_revenue:,.3f}", (0, 102, 204)),
+            ("Total O&M Cost", f"{currency_symbol}{total_o_and_m_cost:,.3f}", (255, 165, 0)),
+            ("Total Net Revenue", f"{currency_symbol}{cumulative_net_revenue:,.3f}", (34, 139, 34)),
+            ("NPV", f"{currency_symbol}{npv:,.3f}", (255, 69, 0)),
+            ("IRR", f"{irr:.3f}%", (75, 0, 130)),
             ("Simple Payback Period", f"{payback_period_years} years and {additional_months} months", (255, 215, 0)),
-            ("Annual Average ROI", f"{annual_average_roi:.2f}%", (30, 144, 255)),
+            ("Annual Average ROI", f"{annual_average_roi:.3f}%", (30, 144, 255)),
             ("LCoE", f"{currency_symbol}{lcoe:.4f}/kWh", (220, 20, 60)),
         ]
         pdf.add_two_column_metrics(financial_metrics)
@@ -1130,11 +1130,11 @@ if submit_button:
         
         bg_color = (230, 240, 255)  # Light blue background color
         metrics = [
-            {"image": "house.png", "value": f"{houses_energized:.2f}", "description": "Houses\nEnergized per Year"},
-            {"image": "petrol-pump.png", "value": f"{gallons_gas_saved:.2f}", "description": "Gallons of Gas\nSaved per Year"},
-            {"image": "car-wash.png", "value": f"{cars_taken_off_road:.2f}", "description": "Cars Taken Off\nRoad per Year"},
-            {"image": "forest.png", "value": f"{tree_seedlings:.2f}", "description": "Tree Seedlings\nGrown for 10 Years"},
-            {"image": "co2.png", "value": f"{co2_saved_tonnes:.2f}", "description": "Tonnes of CO2\nEmissions Saved per Year"},
+            {"image": "house.png", "value": f"{houses_energized:.3f}", "description": "Houses\nEnergized per Year"},
+            {"image": "petrol-pump.png", "value": f"{gallons_gas_saved:.3f}", "description": "Gallons of Gas\nSaved per Year"},
+            {"image": "car-wash.png", "value": f"{cars_taken_off_road:.3f}", "description": "Cars Taken Off\nRoad per Year"},
+            {"image": "forest.png", "value": f"{tree_seedlings:.3f}", "description": "Tree Seedlings\nGrown for 10 Years"},
+            {"image": "co2.png", "value": f"{co2_saved_tonnes:.3f}", "description": "Tonnes of CO2\nEmissions Saved per Year"},
         ]
         
         pdf.metric_table(metrics, bg_color)
