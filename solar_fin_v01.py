@@ -433,14 +433,14 @@ with st.form(key='solar_form'):
     
     col1, col2 = st.columns(2)
     with col1:
-        initial_investment = st.number_input(f"Initial Investment ({currency_symbol}/Wp)", min_value=0.0, value=1.0, step=0.001)
-        project_capacity = st.number_input("Project Capacity (kWp)", min_value=0.0, value=1.0, step=0.01)
-        o_and_m_cost = st.number_input(f"O&M Cost ({currency_symbol}/kWp per year)", min_value=0.0, value=10.0, step=0.001)
-        electricity_cost = st.number_input(f"Cost of Electricity ({currency_symbol}/kWh)", min_value=0.0, value=0.1, step=0.001)
+        initial_investment = st.number_input(f"Initial Investment ({currency_symbol}/Wp)", min_value=0.000, value=1.000, step=0.001)
+        project_capacity = st.number_input("Project Capacity (kWp)", min_value=0.00, value=1.00, step=0.01)
+        o_and_m_cost = st.number_input(f"O&M Cost ({currency_symbol}/kWp per year)", min_value=0.000, value=10.000, step=0.001)
+        electricity_cost = st.number_input(f"Cost of Electricity ({currency_symbol}/kWh)", min_value=0.000, value=0.100, step=0.001)
         project_life = st.number_input("Project Life (years)", min_value=1, value=25, step=1)
         energy_generation_first_year = st.number_input("Energy Generation for First Year (kWh)", min_value=0.0, value=1500.0, step=1.0)
     with col2:
-        yearly_degradation = st.number_input("Yearly Degradation in Generation (%)", min_value=0.0, value=0.5, step=0.001)
+        yearly_degradation = st.number_input("Yearly Degradation in Generation (%)", min_value=0.000, value=0.500, step=0.001)
         o_and_m_escalation = st.number_input("O&M Cost Escalation (%)", min_value=0.0, value=2.0, step=0.1)
         electricity_tariff_escalation = st.number_input("Electricity Tariff Escalation (%)", min_value=0.0, value=2.0, step=0.1)
         escalation_years = st.number_input("Escalation Period (years)", min_value=1, value=1, step=1)
